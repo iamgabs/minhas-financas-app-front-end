@@ -28,7 +28,7 @@ class CadastroLancamento extends React.Component {
 
     submit = () => {
         const { descricao, valor, mes, ano, tipo } = this.state
-        const usuarioLogado = LocalStorageService.getItem("_usuario_logado")
+        const usuarioLogado = LocalStorageService.getItem('_usuario_logado')
 
         const lancamento = { descricao, valor, mes, ano, tipo, usuario: usuarioLogado.id }
 
@@ -46,7 +46,7 @@ class CadastroLancamento extends React.Component {
             .salvar(lancamento)
             .then(response => {
                 this.props.history.push('/consulta-lancamentos')
-                successMessage("Lanamento cadastrado com sucesso!")
+                successMessage("Lançamento cadastrado com sucesso!")
             })
             .catch(error => {
                 errorMessage(error.response.data)

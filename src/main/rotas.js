@@ -7,11 +7,10 @@ import ConsultaLancamento from "../views/lançamentos/consultaLancamento"
 import cadastroLancamento from "../views/lançamentos/cadastroLancamento"
 import AuthService from "../app/service/authService"
 
-
 function AuthRoute({ component: Component, ...props }){
     return (
         <Route {...props} render={ (componentProps) => {
-            if(AuthService.isAuthUser){
+            if(AuthService.isAuthUser()){
                 return (
                     <Component {...componentProps}/>
                 )

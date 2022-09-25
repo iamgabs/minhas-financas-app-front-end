@@ -2,7 +2,6 @@ import React from 'react'
 import Rotas from './rotas'
 import Navbar from '../components/navbar'
 import 'toastr/build/toastr.min.js'
-import ProvedorAutenticacao from './authProvider'
 
 import 'bootswatch/dist/flatly/bootstrap.css'
 import '../custom.css'
@@ -15,14 +14,14 @@ import 'primeicons/primeicons.css'
 class App extends React.Component {
   render(){
     return(
-      <ProvedorAutenticacao>
+      <>
         <Navbar />
         <div className="container">
           <div className="container">
             <Rotas />
           </div>
         </div>
-      </ProvedorAutenticacao>
+      </>
     );
   }
 }

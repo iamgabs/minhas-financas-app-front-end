@@ -4,7 +4,7 @@ import FormGroup from "../components/formgroup"
 import { withRouter } from 'react-router-dom'
 import UsuarioService from "../app/service/usuarioService"
 import { successMessage, errorMessage } from '../components/toastr'
-import { AuthContext } from "../main/authProvider"
+import LocalStorageService from "../app/service/localStorageService"
 
 class Login extends React.Component {
 
@@ -24,7 +24,7 @@ class Login extends React.Component {
             email: this.state.email,
             senha: this.state.senha
         }).then( response => {
-            this.context.startSession(response.data)
+            LocalStorageService.addItem('_usuario_logado', response.data)
             successMessage('Logado com sucesso!')
             this.props.history.push("/home")
         }).catch( erro => {
@@ -83,7 +83,5 @@ class Login extends React.Component {
         </div>
     }
 }
-
-Login.contextType = AuthContext
 
 export default withRouter(Login)
